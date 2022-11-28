@@ -2,7 +2,6 @@
 package hase
 
 import (
-	"fmt"
 	"testing"
 )
 
@@ -27,7 +26,6 @@ func BenchmarkInMap(b *testing.B) {
 
 // InSlice 判断字符串是否在 slice 中。
 func InSlice[T int | int32 | int64 | string](items []T, item T) bool {
-	fmt.Printf("items type name----%T\n", sl)
 	for _, eachItem := range items {
 		if eachItem == item {
 			return true
