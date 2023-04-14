@@ -1,8 +1,10 @@
 // @Author xiaozhaofu 2022/11/26 20:44:00
-package hase
+package test
 
 import (
 	"testing"
+
+	"github.com/gtkit/E"
 )
 
 var sl = []string{"a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"}
@@ -17,9 +19,9 @@ func BenchmarkInSlice(b *testing.B) {
 }
 
 func BenchmarkInMap(b *testing.B) {
-	m := Slice2Map(sl)
+	m := E.Slice2Map(sl)
 	for i := 0; i < b.N; i++ {
-		InMap(m, "m")
+		E.InMap(m, "m")
 		// InMap(m, 2)
 	}
 }
@@ -32,4 +34,14 @@ func InSlice[T int | int32 | int64 | string](items []T, item T) bool {
 		}
 	}
 	return false
+}
+
+func HasSlice[T int | int32 | int64 | string](items []T, item T) bool {
+	m := E.Slice2Map(items)
+	return E.InMap(m, item)
+}
+
+func TestHasSlice(t *testing.T) {
+	b := HasSlice(sl, "e")
+	t.Log("test has slice----", b)
 }

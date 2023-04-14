@@ -1,5 +1,4 @@
-// @Author xiaozhaofu 2022/11/28 01:07:00
-package hase
+package E
 
 type intstring interface {
 	int | int8 | int16 | int32 | int64 | string

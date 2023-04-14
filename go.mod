@@ -1,3 +1,3 @@
-module gitlab.superjq.com/go-tools/hase
+module github.com/gtkit/E
 
-go 1.19
+go 1.20
